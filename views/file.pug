@@ -1,0 +1,15 @@
+extends layout.pug
+
+
+block content
+    .container
+      
+        .form-section
+            h2 File Upload
+            form(method="POST" action="/upload" enctype="multipart/form-data")
+                .form-group
+                    label(for="file") Choose files:
+                    input(type="file" id="file" name="file" multiple required)
+                
+                button(type="submit").btn-primary Upload
+

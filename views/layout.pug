@@ -1,0 +1,17 @@
+//- layout.pug
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title= title
+    link(rel="stylesheet" href="/style.css")
+
+body
+    include _header.pug
+    block content
+
+    block foot
+        .container(style="margin-top: 2em;")
+          #footer
+          p some footer content

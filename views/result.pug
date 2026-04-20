@@ -1,0 +1,20 @@
+extends layout.pug
+
+
+block content
+    .container
+      if status === 'success'
+        h1 Upload Successful
+        .result-success
+          p File "#{fileName}" has been successfully uploaded!
+          p.file-info
+            strong File name:&nbsp;
+            span= fileName
+      else
+        h1 Upload Error
+        .result-error
+          p An error occurred during the file upload.
+          p.error-message
+            strong Error:&nbsp;
+            span= message
+      
