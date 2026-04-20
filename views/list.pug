@@ -16,7 +16,7 @@ block content
               tr
                 td= file.fileName
                 td= file.originalName
-                td= file.size
+                td=  Math.floor(file.size / 1024)
                 td= file.uploadedAt
         else 
             h2 List of files is empty      

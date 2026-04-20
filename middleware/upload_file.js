@@ -74,7 +74,7 @@ export const uploadFileMiddleware = (req, res, next) => {
       allFiles.push({
         fileName: filename,
         originalName: originalname,
-        size: Math.floor(size / 1024),
+        size,
         uploadedAt: date.toISOString(),
       });
     });
