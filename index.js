@@ -1,13 +1,13 @@
 import express from "express";
 import dotenv from "dotenv";
-dotenv.config();
 import logger from "morgan";
 import path from "path";
 import { fileURLToPath } from "url";
 import { homeRouter, uploadRouter } from "./routes/index.js";
 import { ROUTES } from "./common/index.js";
-
 import { notFoundHandler } from "./middleware/index.js";
+
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;

@@ -1,0 +1,22 @@
+extends layout.pug
+
+
+block content
+    .container
+       table.table.table-bordered
+        if allFiles.length > 0
+           thead
+             tr
+               th(scope='col')  fileName
+               th(scope='col')  originalName
+               th(scope='col')  size (кBytes)
+               th(scope='col')  uploadedAt
+           tbody
+            each file in allFiles
+              tr
+                td= file.fileName
+                td= file.originalName
+                td= file.size
+                td= file.uploadedAt
+        else 
+            h2 List of files is empty      
