@@ -75,7 +75,7 @@ export const uploadFileMiddleware = (req, res, next) => {
         fileName: filename,
         originalName: originalname,
         size: Math.floor(size / 1024),
-        uploadedAt: date.toDateString(),
+        uploadedAt: date.toISOString(),
       });
     });
 
