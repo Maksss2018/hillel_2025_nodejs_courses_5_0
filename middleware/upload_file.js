@@ -3,10 +3,18 @@ import { ALLOWED_EXTENSIONS as allowedExtensions } from "../common/index.js";
 import path from "path";
 import { fileURLToPath } from "url";
 import { allFiles } from "../common/index.js";
+import { mkdir } from "fs/promises";
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const uploadDir = path.join(__dirname, "..", "files");
 
 const maxFileSize = 250 * 1024;
+
+try {
+  await mkdir(uploadDir, { recursive: true });
+} catch (err) {
+  console.error("Error creating folder:", err);
+}
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
