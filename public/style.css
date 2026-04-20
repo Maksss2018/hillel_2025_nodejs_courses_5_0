@@ -43,8 +43,13 @@ a {
   transition: background-color 0.3s;
 }
 
+a:not(:hover, :active) {
+  color: black;
+}
+
 a:hover {
   background-color: #0056b3;
+  color: white !important;
 }
 
 a.active {
