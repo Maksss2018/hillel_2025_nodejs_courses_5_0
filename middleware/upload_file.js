@@ -21,7 +21,9 @@ const storage = multer.diskStorage({
     cb(null, uploadDir);
   },
   filename: (req, file, cb) => {
-    const uniqueSuffix = `${Date.now()}_${Math.round(Math.random() * 10000)}`;
+    const now = new Date();
+    const seconds = now.getSeconds();
+    const uniqueSuffix = `${seconds}_${Math.round(Math.random() * 10000)}`;
     const { name, ext } = path.parse(file.originalname);
     cb(null, `${name}_${uniqueSuffix}_${ext}`);
   },
@@ -68,11 +70,12 @@ export const uploadFileMiddleware = (req, res, next) => {
     const fileNames = req.files.map((f) => f.originalname);
 
     req.files.forEach(({ originalname, size, filename, destination }) => {
+      const date = new Date();
       allFiles.push({
         fileName: filename,
         originalName: originalname,
         size: Math.floor(size / 1024),
-        uploadedAt: destination,
+        uploadedAt: date.toDateString(),
       });
     });
 
